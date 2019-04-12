@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		{%block title%}
+			Homepage
+		{% endblock%}
+	</title>
+</head>
+<body>
+	<h1>Internship Manager </h1>
+	<p>
+		<a href="{% url 'account_home' %}">Home</a> / 
+		{% if user.is_authenticated %}
+		<a href="{% url 'account_dashboard' user.username %}">Profile</a> /
+			<a href="{% url 'account_logout' %}">Logout</a>
+		{% else  %}
+			<a href="{% url 'account_register' %}">Sign Up</a> /  
+			<a href="{% url 'account_login' %}">Login</a>
+		{% endif %}
+	</p>
+{% block content %}
+ 	<h1>We come to right place.</h1>
+ {%endblock%}
+</body>
+</html>
