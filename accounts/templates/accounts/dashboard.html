@@ -1,5 +1,24 @@
 {% extends 'accounts/base.html' %}
 
 {% block content %}
-	<h1>Welcome to Dashboard</h1>
+	<div class="dashboard">
+		{% if user.is_authenticated %}
+			{% if user.is_staff %}
+				<h1>Welcome, {{user.username}}</h1>
+				<p>You have signed in as Admin, You are allowed to add/modify the interns. </p>
+				<h4>List of Interns </h4>
+				<b><a href="{% url 'account_profile' user.username %}"> View Profile</a></b>
+
+				{% for intern in interns %}
+					<li>{{intern.username }}</li>
+				{%endfor%}
+			{% else %}
+				<h1>Welcome, {{user.username}}</h1>
+				<p>This is your Dashboard, You can change and monitor the information about your account. </p>
+
+				<a href="{% url 'account_profile' user.username %}"><button> View Profile </button></a>
+
+			{% endif %}
+	{% endif %}
+	</div>
 {% endblock %}

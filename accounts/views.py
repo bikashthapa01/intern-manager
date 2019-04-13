@@ -25,7 +25,7 @@ def register(request):
 
 @login_required
 def dashboard(request):
-	return render(request,'accounts/dashboard.html',{})
+	return render(request,'accounts/dashboard.html',{'interns':User.objects.filter(is_staff = False)})
 
 def logout(request):
 	auth_logout(request)
@@ -39,7 +39,7 @@ def edit_profile(request,username):
 		form = ProfileEditForm(request.POST,instance=request.user)
 		if form.is_valid():
 			form.save()
-			return redirect('account_dashboard',username=username)
+			return redirect('account_profile',username=username)
 	else:
 		form = ProfileEditForm(instance=request.user)
 	return render(request,'profile/edit_profile.html',{'form':form})

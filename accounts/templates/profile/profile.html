@@ -10,6 +10,7 @@
 		<li>First Name: {{user.first_name}} </li>
 		<li>Last Name: {{user.last_name}} </li>
 		<li>Email: {{user.email }}</li>
+		<li>Phone: {{user.profile.phone}}</li>
 	</p>
 
 	<a href="{% url 'edit_profile' user.username %}">Edit Profile </a>

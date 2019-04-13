@@ -1,0 +1,24 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size:80%;
+}
+.body {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1.7rem;
+}
+.container,header,.footer {
+	max-width: 100rem;
+	margin: auto;
+	padding: 1rem; 
+}
+
+header {
+	background: #ccc;
+	color: #000;
+	font-family: 'PT Sans', sans-serif;
+}

@@ -122,4 +122,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = 'account_home'
+LOGIN_REDIRECT_URL = 'account_dashboard'
