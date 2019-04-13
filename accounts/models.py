@@ -10,7 +10,7 @@ class Profile(models.Model):
 	phone = models.IntegerField(default=0)
 	stipend = models.IntegerField(default=0)
 	admin_remark = models.CharField(max_length=500,default="")
-	profile_image = models.ImageField(upload_to="profile_image")
+	profile_image = models.ImageField(upload_to="profile_image/")
 	offer_letter = models.FileField(upload_to="uploads/")
 	date_of_joining = models.DateField(default=date.today())
 	date_of_leaving = models.DateField(default=date.today())

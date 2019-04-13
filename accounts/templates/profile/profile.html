@@ -5,12 +5,17 @@
 {% block content %}
 	<h1>Welcome, <i>{{user.username}}</i></h1>
 
-	<h1>Your Details </h1>
 	<p>
+		<li><img src="{{user.profile.profile_image.url}}" width="200"></li>
 		<li>First Name: {{user.first_name}} </li>
 		<li>Last Name: {{user.last_name}} </li>
 		<li>Email: {{user.email }}</li>
 		<li>Phone: {{user.profile.phone}}</li>
+		<li>Stipend: {{user.profile.stipend}}</li>
+		<li>Admin Remark: {{user.profile.admin_remark}}</li>
+		{# <li> Offer Letter: {{user.profile.offer_letter}}</li> #}
+		<li>Joined Date: {{user.profile.date_of_joining}}</li>
+		<li>Last Working Date: {{user.profile.date_of_leaving}}</li>
 	</p>
 
 	<a href="{% url 'edit_profile' user.username %}">Edit Profile </a>

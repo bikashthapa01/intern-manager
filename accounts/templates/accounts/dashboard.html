@@ -7,7 +7,6 @@
 				<h1>Welcome, {{user.username}}</h1>
 				<p>You have signed in as Admin, You are allowed to add/modify the interns. </p>
 				<h4>List of Interns </h4>
-				<b><a href="{% url 'account_profile' user.username %}"> View Profile</a></b>
 
 				{% for intern in interns %}
 					<li>{{intern.username }}</li>

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.models import User
-from accounts.forms import ProfileEditForm
+from accounts.forms import ProfileEditForm,UserProfileEditForm
 
 # Create your views here.
 
@@ -25,7 +25,7 @@ def register(request):
 
 @login_required
 def dashboard(request):
-	return render(request,'accounts/dashboard.html',{'interns':User.objects.filter(is_staff = False)})
+	return render(request,'accounts/dashboard.html',{'interns':User.objects.filter(is_staff = False).order_by('-date_joined')})
 
 def logout(request):
 	auth_logout(request)
@@ -37,9 +37,12 @@ def profile(request,username):
 def edit_profile(request,username):
 	if request.method == "POST":
 		form = ProfileEditForm(request.POST,instance=request.user)
-		if form.is_valid():
+		profile_form = UserProfileEditForm(request.POST, instance = request.user.profile)
+		if form.is_valid() and profile_form.is_valid():
 			form.save()
+			profile_form.save()
 			return redirect('account_profile',username=username)
 	else:
 		form = ProfileEditForm(instance=request.user)
-	return render(request,'profile/edit_profile.html',{'form':form})
+		profile_form = UserProfileEditForm(instance = request.user.profile)
+	return render(request,'profile/edit_profile.html',{'form':form,'profile':profile_form})
