@@ -3,10 +3,24 @@
 	Create Account
 {% endblock%}
 {%block content%}
-	<h1>Crate New Account</h1>
-	<form method="POST">
-		{%csrf_token%}
-		{{form.as_p}}
-		<button>Signup</button>
-	</form>
+	<div class="auth_content">
+		<h1>Create New Account</h1>
+		<form method="POST" class="register_form">
+			{%csrf_token%}
+			<p>
+				<label>Username (Max. 150 Character )</label>
+				{{form.username}}
+			</p>
+			<p>
+				<label>Password (Min. 8 Characters )</label>
+				{{form.password1}}
+			</p>
+			<p>
+				<label>Confirm-Password </label>
+				{{form.password2}}
+			</p>
+			
+			<button>Signup</button>
+		</form>
+	</div>
 {% endblock %}

@@ -1,22 +1,58 @@
 {% extends 'accounts/base.html' %}
 {% block title %}
-	Profile
+	{{userdata.first_name}} {{userdata.last_name}} | Profile
 {% endblock %}
 {% block content %}
-	<h1>Welcome, <i>{{user.username}}</i></h1>
+	
+	<div class="user_profile">
+		<div class="profile_card">
+			<div class="card">
+				<img src="{{userdata.profile.profile_image.url}}" width="200">
+				<h2>{{userdata.first_name}} {{userdata.last_name}}</h2>
+				<small>@{{userdata.username}}</small>
+			</div>
 
-	<p>
-		<li><img src="{{user.profile.profile_image.url}}" width="200"></li>
-		<li>First Name: {{user.first_name}} </li>
-		<li>Last Name: {{user.last_name}} </li>
-		<li>Email: {{user.email }}</li>
-		<li>Phone: {{user.profile.phone}}</li>
-		<li>Stipend: {{user.profile.stipend}}</li>
-		<li>Admin Remark: {{user.profile.admin_remark}}</li>
-		{# <li> Offer Letter: {{user.profile.offer_letter}}</li> #}
-		<li>Joined Date: {{user.profile.date_of_joining}}</li>
-		<li>Last Working Date: {{user.profile.date_of_leaving}}</li>
-	</p>
+			<div class="btns">
+				{% if user.is_staff %}
+					<a href="{% url 'admin_profile_edit' userdata.username %}">Update User </a>
+				{% elif userdata.username == user.username %}
+					<a href="{% url 'edit_profile' userdata.username %}">Edit Profile </a>
+				{% endif %}
+			</div>
+		</div>
 
-	<a href="{% url 'edit_profile' user.username %}">Edit Profile </a>
+		<div class="profile_details">
+			<div class="info_boxes">
+				<div class="card_box">
+					Joined Date: <span>{{userdata.profile.date_of_joining}}</span>  
+				</div>
+				<div class="card_box">
+					Last Working Date: <span>{{userdata.profile.date_of_leaving}}</span>  
+				</div>
+				<div class="card_box">
+					Stipend: <span>Rs. 5000 </span>
+				</div>
+			</div>	
+
+			<div class="other_details">
+				<ul>
+					<li><b>Full Name: </b><span>{{userdata.first_name}} {{userdata.last_name}}</span></li>
+					<li><b>Email: </b><span>{{userdata.email}}</span></li>
+					<li><b>Phone Number:</b> <span>{{userdata.profile.phone}} </span></li>
+					<li><b>Document: </b><span><button>View</button></span></li>
+					<li>
+						<b>Account Status: </b>
+						<span>
+							{% if userdata.is_active %}
+								Active
+							{% else %}
+								Expired
+							{% endif %}
+						</span>  
+					</li>
+					<li><b>Admin Remarks: </b><span>{{userdata.profile.admin_remark}}<span></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
 {% endblock %}

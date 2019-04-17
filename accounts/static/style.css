@@ -5,20 +5,562 @@
 }
 
 html {
-	font-size:80%;
+	font-size:75%;
+}
+.container h1 {
+	text-align: center;
+	font-family: "PT Sans",sans-serif;
+	padding: 2rem;
+}
+
+form {
+	text-align: center;	
+}
+	
+form p label  {
+	display: block;
+	font-size: 1.7rem;
+	font-family: "PT Sans",sans-serif;
+}
+
+form p input {
+	padding: 1rem;
+
+}
+form button {
+	margin-top: 2rem !important;
+}
+
+
+.errorlist li , .nonfield li {
+	font-size: 1.5rem;
+	font-family: "PT Sans",sans-serif;
+	color: red;
 }
 .body {
 	font-family: 'PT Sans', sans-serif;
 	font-size: 1.7rem;
 }
 .container,header,.footer {
-	max-width: 100rem;
-	margin: auto;
-	padding: 1rem; 
+ 
 }
 
 header {
-	background: #ccc;
+	background: #607D8B;
+    font-family: 'PT Sans', sans-serif;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.top_navigation  a {
+	text-decoration: none;
+	font-size: 1.5rem;
+	color: #fff;
+	font-weight: 500;
+	font-family: inherit;
+	padding: 1rem;
+}
+
+
+.admin_dashboard {
+	display: flex;
+	
+}
+
+.admin_dashboard_menu {
+	flex: 0 1 15%;
+}
+.admin_dashboard_content {
+	flex: 1;
+	padding: 1rem;
+    background: #f3f5f7;
+
+}
+.user_info {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+.user_info  img {
+	height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.user_info h2 {
+	padding: 1rem;
+    text-transform: capitalize;
+    font-size: 1.3rem;
+    font-family: 'PT Sans', sans-serif;
+    color: #7d7b7b;
+    font-weight: 300;
+}
+.admin_dashboard_menu ul {
+	list-style-type: none;
+	min-height: 100vh;
+	padding: 1rem;
+}
+.admin_dashboard_menu ul li {
+	padding: 1rem;
+	cursor: pointer;
+}
+.admin_dashboard_menu ul li a {
+	text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: "PT Sans",sans-serif;
+    text-transform: uppercase;
+    color: #7d7b7b;
+	
+}
+.fas {
+	padding: 0.8rem;
+}
+.admin_dashboard_menu ul li:hover {
+	background: linear-gradient(transparent,#ddd);
+	border-left: 3px solid orangered;
+}
+
+.admin_dashboard_menu ul li:hover a {
 	color: #000;
-	font-family: 'PT Sans', sans-serif;
+}
+.content_header {
+	display: flex;
+    justify-content: space-evenly;
+    padding: 2rem;
+}
+.intern_count,.intern_box {
+	padding: 4rem;
+    display: -webkit-inline-box;
+    background: #4CAF50;
+    color: #fff;
+    font-family: "PT sans",sans-serif;
+    border-radius: 5px;
+    float: left;
+    font-size: 1.6rem;
+    box-shadow: -2px 2px 23px 1px rgba(158,149,158,0.7);
+}
+
+.total_paid {
+	background: #8BC34A;
+}
+.overdue_intern {
+	background: #009688;
+}
+.intern_box h1 {
+	padding: 0;
+}
+
+
+.intern_count h1 span, {
+	    color: #000;
+}
+.admin_dashboard_content {
+	display: flex;
+	flex-direction: column;
+}
+.recent_interns {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+.recent_interns h1 {
+	font-size: 2rem;
+    font-family: "PT Sans",sans-serif;
+    font-weight: 700;
+    padding: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+.profile_box {
+	list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: -2px 2px 23px 1px rgba(158,149,158,0.7);
+    flex: 0 1 30%;
+    margin-bottom: 5rem;
+
+}
+
+.profile_box img {
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: top;
+
+}
+
+.profile_box h1 {
+	margin: 0;
+
+}
+.intern_ {
+	display: flex;
+	justify-content: space-around;
+	padding-top: 2rem;
+	flex-wrap: wrap;
+}
+.profile_button {
+	display: flex;
+}
+.profile_info {
+	padding: 5rem;
+	text-align: center;
+	font-family: "PT Sans",sans-serif;
+	padding-bottom: 1rem;
+
+}
+.profile_info h2 {
+	text-transform: capitalize;
+	    padding: 1rem;
+}
+.profile_info span {
+	display: block;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+.profile_info span:not(:last-child) {
+	color: #2196f3;
+}
+.profile_button {
+	border-top: 1px solid #ddd;
+	text-align: center;
+}
+
+.profile_button a {
+	flex: 0 1 50%;
+    padding: 2rem;
+    font-family: "PT Sans",sans-serif;
+    font-size: 1.3rem;
+    color: #7d7b7b;
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: 700;
+
+}
+
+.profile_button a:first-child {
+	border-right:1px solid #ddd;
+}
+.btn_interns {
+	padding: 1rem;
+    border: none;
+    margin-top: 2rem;
+    font-family: "PT sans",sans-serif;
+    font-size: 1.5rem;
+    color: #FF5722;
+    font-weight: 700;
+    flex-wrap: nowrap;
+    cursor: pointer;
+}
+.btns {
+	text-align: center;
+}
+.intern_menu {
+	display: flex;
+    padding: 2rem;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.btn_addnew {
+	border: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-family: "PT Sans";
+    background: darkcyan;
+    color: #fff;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+.search_btn {
+	font-size:1rem;
+
+}
+.intern_search input {
+	    padding: 1rem;
+    border: none;
+    font-family: "PT Sans",sans-serif;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+button {
+	cursor: pointer;
+}
+
+/* login form styles */
+
+
+/* login form styles */
+.auth_content {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+}
+.register_form {
+	display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.register_form p {
+	margin-bottom: 1rem;
+}
+.register_form p label {
+	display: flex;
+	flex-direction: column;
+	font-size: 1.4rem;
+	font-family: "PT Sans",sans-serif;
+
+}
+.auth_content {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10rem;
+}
+.auth_content h1 {
+	padding: 1rem;
+	font-family: "PT Sans",sans-serif;
+}
+.auth_content button, form button ,button{
+	padding: 1rem;
+    font-family: "PT Sans";
+    font-size: 1.7rem;
+    border-radius: 5px;
+    border: none;
+    background: #607d8b;
+    color: #fff;
+}
+.register_form p input {
+	padding: 1rem;
+	width: 100%;
+}
+
+.user_profile {
+	max-width: 100rem;
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    align-items: end;
+    padding-top: 2rem;
+}
+.profile_card {
+	flex: 0 1 25%;
+    background: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: -2px 2px 23px 1px rgba(158,149,158,0.7);
+}
+
+
+.card {
+	text-align: center;
+	padding: 3rem;
+
+}
+.card img {
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: top;
+}
+.card h2 {
+	font-family: "PT Sans",sans-serif;
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+.card small {
+	font-size: 1.7rem;
+    font-family: "PT Sans",sans-serif;
+    color: #3f51b5;
+}
+.btns  {
+	padding: 1rem;
+    border-top: 1px solid #8BC34A;
+}
+.btns a {
+	text-decoration: none;
+    font-size: 1.7rem;
+    color: #000;
+    font-family: "PT Sans",sans-serif;
+}
+
+
+.profile_details {
+	flex: 1;
+    /*background: #f7f7f7;*/
+    padding: 2rem;
+    margin-left: 1rem;
+    border-radius: 5px;
+    /*box-shadow: -2px 2px 23px 1px rgba(158,149,158,0.7);*/
+    padding-top: 0;
+
+}
+
+.info_boxes {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+}
+.card_box {
+	background: #2962ff;
+    padding: 2rem;
+    border-radius: 5px;
+    font-size: 1.7rem;
+    font-family: "PT Sans",sans-serif;
+    color: #fff;
+    flex: 0 1 25%;
+   	white-space: nowrap;
+}
+.card_box:nth-child(even){
+	background: #2979ff;
+}
+
+.card_box:last-child {
+	background: #448aff;
+}
+
+
+.card_box span {
+	display: block;
+	font-style: italic;
+	font-weight: 500;
+}
+.other_details {
+	
+}
+
+.other_details ul {
+	list-style-type: none;
+	padding-top: 2rem;
+}
+
+.other_details ul li {
+	padding: 2rem;
+	font-size: 1.7rem;
+	font-family: "PT Sans",sans-serif;
+	font-weight: 700;
+	display: flex;
+    justify-content: space-between;
+	
+}
+.other_details ul li span {
+	font-weight: 500;
+}
+
+.other_details ul li:nth-child(odd){
+	background: #ccc;
+}
+
+.other_details ul li:nth-child(even) {
+	background:#f7f7f7;
+}
+
+.edit_profile_form {
+	text-align: left;
+	margin: auto;
+	max-width: 100rem;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	font-family: "PT Sans",sans-serif;
+}
+
+.edit_profile_form label {
+	display: inline;
+	padding: 1rem;
+	flex: 0 1 25%;
+}
+
+.helptext {
+	display: none;
+}
+.edit_profile_form p {
+	padding: 1rem;
+	display: flex;
+
+}
+
+.edit_profile_form p input {
+	padding: 1rem;
+	border:none;
+	background: #fff;
+	flex: 1;
+}
+
+
+
+.edit_profile_form p:nth-child(even){
+	background: #f7f7f7;
+}
+
+.edit_profile_form p:last-child {
+	display: flex;
+	
+}
+
+.edit_profile_form p:last-child a,.edit_profile_form p:last-child label,#profile_image-clear_id {
+	display: none;
+}
+
+.profile_form {
+	font-size: 0;
+}
+
+.edit_profile_form p:last-child label:first-child {
+	display: block;
+	font-size: 1.7rem;
+}
+
+.current_profile img {
+	object-position: top;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+
+.recent_interns button {
+	border-top: none;
+	color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-family: "PT Sans";
 }

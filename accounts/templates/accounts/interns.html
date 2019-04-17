@@ -1,0 +1,48 @@
+{% extends 'accounts/dashboard.html' %}
+
+{% block title %} All Interns {% endblock %}
+
+
+{% block admin_content %}
+
+
+						<div class="recent_interns">
+
+							<div class="intern_menu">
+								<a href="{% url 'account_register' %}"><button class="btn_addnew" >Add New</button></a>
+								<form class="intern_search">
+									<input type="text" name="search" placeholder="Search Interns">
+									<button class="btn_addnew search_btn"><i class="fas fa-search"></i></button>
+								</form>
+							</div>
+							<h1>All Interns</h1>
+							<div class="intern_">
+								{% for intern in interns %}
+							
+								<li class="profile_box">
+								
+									<div class="profile_info">
+										{% if intern.profile.profile_image.url %}
+											<img src="{{intern.profile.profile_image.url}}">
+										{% else %}
+											<img src="https://randomuser.me/api/portraits/men/32.jpg" width="200">
+										{%endif%}
+										<h2>{{intern.first_name}} {{intern.last_name}}</h2>
+										<span>{{intern.email}}</span>
+										<span>{{intern.profile.phone}}</span>
+									</div>
+									<div class="profile_button">
+										<a href="{% url 'account_profile' intern.username %}">View Profile</a>
+										<a href="{% url 'admin_profile_edit' intern.username %}">Update Profile</a>
+									</div>
+								</li>
+
+							{%endfor%}
+							</div>
+
+							<div class="btns">
+								<button class="btn_interns">Load More &rarr;</button>
+							</div>
+						</div>
+{% endblock %}
+

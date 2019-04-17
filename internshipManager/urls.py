@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from accounts.views import homeView,profile,edit_profile,dashboard
+from accounts.views import homeView,profile,edit_profile,dashboard,superProfileEdit,allInterns
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,5 +25,7 @@ urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('profile/<username>/',profile,name="account_profile"),
     path('profile/<username>/edit/',edit_profile,name="edit_profile"),
-    path('dashboard/',dashboard,name="account_dashboard")
+    path('dashboard/',dashboard,name="account_dashboard"),
+    path('admin/edit/<username>/',superProfileEdit,name="admin_profile_edit"),
+    path('admin/interns/',allInterns,name="all_interns")
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

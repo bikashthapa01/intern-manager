@@ -1,7 +1,7 @@
 {% extends 'accounts/base.html' %}
 
 {% block title %}
-	Edit Profile | {{user.first_name}} {{user.last_name}}
+	Update Profile | {{user.first_name}} {{user.last_name}}
 {% endblock %}
 
 
@@ -12,11 +12,6 @@
 		<div class="profile_form">
 			{{profile.as_p}}
 		</div>
-
-		<p class="current_profile">
-			<label>Current Image: </label>
-			<img src="{{user.profile.profile_image.url}}" width="200" height="200">
-		</p>
 		<button>Save Changes </button>
 	</form>
 {% endblock %}

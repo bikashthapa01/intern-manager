@@ -1,22 +1,78 @@
 {% extends 'accounts/base.html' %}
 
+{% block title %} Dashboard | {{user.username}} {% endblock %}
+}
+  
 {% block content %}
 	<div class="dashboard">
 		{% if user.is_authenticated %}
-			{% if user.is_staff %}
-				<h1>Welcome, {{user.username}}</h1>
-				<p>You have signed in as Admin, You are allowed to add/modify the interns. </p>
-				<h4>List of Interns </h4>
+			{% if user.is_staff %}			
+				<div class="admin_dashboard">
+					<div class="admin_dashboard_menu">
 
-				{% for intern in interns %}
-					<li>{{intern.username }}</li>
-				{%endfor%}
-			{% else %}
-				<h1>Welcome, {{user.username}}</h1>
-				<p>This is your Dashboard, You can change and monitor the information about your account. </p>
+						<div class="user_info">
+							<img src="{{user.profile.profile_image.url}}">
+							<h2>{{user.first_name}} {{user.last_name}}</h2>
+						</div>
+						<ul>
+							<li><a href="{% url 'account_dashboard' %}"> <i class="fas fa-home"></i> Home</a></li>
+							<li><a href="{% url 'all_interns' %}"><i class="fas fa-user-friends"></i> Interns</a></li>
+							<li><a href="#"><i class="fas fa-chart-pie"></i> Summary</a></li>
+							<li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
+						</ul>
+					</div>
 
-				<a href="{% url 'account_profile' user.username %}"><button> View Profile </button></a>
+					<div class="admin_dashboard_content">	
 
+						{% block admin_content %}
+													<div class="content_header">
+							<div class="intern_count intern_box">
+								<h1>Active Interns: <span>{{total_interns}}</span></h1>
+							</div>
+
+							<div class="overdue_intern intern_box">
+								<h1>Dues Interns: <span> 5 </span></h1>
+							</div>
+
+							<div class="total_paid intern_box">
+								<h1>Paid: <span> Rs. 15000 </span></h1>
+							</div>
+						</div>
+
+						<div class="recent_interns">
+							<h1>Recent Interns</h1>
+							<div class="intern_">
+								{% for intern in interns %}
+							
+								<li class="profile_box">
+								
+									<div class="profile_info">
+										{% if intern.profile.profile_image.url %}
+											<img src="{{intern.profile.profile_image.url}}">
+										{% else %}
+											<img src="https://randomuser.me/api/portraits/men/32.jpg" width="200">
+										{%endif%}
+										<h2>{{intern.first_name}} {{intern.last_name}}</h2>
+										<span>{{intern.email}}</span>
+										<span>{{intern.profile.phone}}</span>
+									</div>
+									<div class="profile_button">
+										<a href="{% url 'account_profile' intern.username %}">View Profile</a>
+										<a href="{% url 'admin_profile_edit' intern.username %}">Update Profile</a>
+									</div>
+								</li>
+
+							{%endfor%}
+							</div>
+
+							<div class="btns">
+								<a href="{% url 'all_interns' %}"><button class="btn_interns">View All &rarr;</button></a>
+							</div>
+						</div>
+						{% endblock %}						
+					</div>	
+				</div>			
+				
 			{% endif %}
 	{% endif %}
 	</div>
